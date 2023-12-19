@@ -23,6 +23,7 @@ const ServerChannel = ({ channel, server, role }: ServerChannelProps) => {
   const router = useRouter();
   const Icon = iconMap[channel.type];
 
+  
   return (
     <button
       //   onClick={onClick}
@@ -45,12 +46,14 @@ const ServerChannel = ({ channel, server, role }: ServerChannelProps) => {
         <div className="ml-auto flex items-center gap-x-2">
           <ActionTooltip label="Edit">
             <Edit
+              onClick={(e) => onOpen("editChannel", { server, channel })}
               //   onClick={(e) => onAction(e, "editChannel")}
               className="hidden group-hover:block w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300 transition"
             />
           </ActionTooltip>
           <ActionTooltip label="Delete">
             <Trash
+              onClick={(e) => onOpen("deleteChannel", { server, channel })}
               //   onClick={(e) => onAction(e, "deleteChannel")}
               className="hidden group-hover:block w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300 transition"
             />
